@@ -29,7 +29,8 @@ namespace snippetProject31
         {
             services.AddDbContext<SnippetContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SnippetConnection")));
             services.AddControllers();
-            services.AddScoped<ISnippetRepo,MockSnippetRepo>();
+            services.AddScoped<ISnippetRepo,SqlSnippetRepo>();            
+            //services.AddScoped<ISnippetRepo,MockSnippetRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
