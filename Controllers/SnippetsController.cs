@@ -9,7 +9,13 @@ namespace SnippetProject31.Controllers
     [ApiController]
     public class SnippetsController:ControllerBase
     {
-        private readonly MockSnippetRepo _repository = new MockSnippetRepo();
+        private readonly ISnippetRepo _repository;
+
+        public SnippetsController(ISnippetRepo repository)
+        {  
+           _repository = repository; 
+        }
+        //private readonly MockSnippetRepo _repository = new MockSnippetRepo();
         //GET api/snippets/
         [HttpGet]
         public ActionResult<IEnumerable<Snippet>>GetAllSnippets(){
