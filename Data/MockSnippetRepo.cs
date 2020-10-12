@@ -6,7 +6,7 @@ namespace  SnippetProject31.Data
     public class MockSnippetRepo : ISnippetRepo
     {
         
-        public IEnumerable<Snippet> GetAppSnippets()
+        public IEnumerable<Snippet> GetAllSnippets()
         {
             var snipppetList = new List<Snippet>{
                  new Snippet{Id=1 ,HowTo="list all",Line="ll",Platform="bash"},

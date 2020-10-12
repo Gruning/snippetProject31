@@ -4,7 +4,7 @@ using SnippetProject31.Models;
 namespace SnippetProject31.Data
 {
     public interface ISnippetRepo{
-        IEnumerable<Snippet> GetAppSnippets();
+        IEnumerable<Snippet> GetAllSnippets();
         Snippet GetSnippetById(int id);
     }
 }

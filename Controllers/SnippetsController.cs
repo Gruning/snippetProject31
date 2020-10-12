@@ -19,7 +19,7 @@ namespace SnippetProject31.Controllers
         //GET api/snippets/
         [HttpGet]
         public ActionResult<IEnumerable<Snippet>>GetAllSnippets(){
-            var items = _repository.GetAppSnippets();
+            var items = _repository.GetAllSnippets();
             return Ok(items);
         }
 
