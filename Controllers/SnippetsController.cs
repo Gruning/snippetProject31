@@ -34,5 +34,14 @@ namespace SnippetProject31.Controllers
             if (item!= null) return Ok(_mapper.Map<SnippetReadDto>(item));
             else return NotFound();
         }
+
+        //POST api/snippets/
+        [HttpPost]
+        public ActionResult<SnippetReadDto> CreateSnippet(SnippetCreateDto snippetCreateDto){
+            var objModel = _mapper.Map<Snippet>(snippetCreateDto);
+            _repository.CreateSnippet(objModel);
+            _repository.SaveChanges();
+            return Ok(objModel);
+        }
     }
 }

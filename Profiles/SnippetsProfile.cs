@@ -8,7 +8,9 @@ namespace SnippetProject31.Profiles
     {
         public SnippetsProfile()
         {
+            //source -> target
             CreateMap<Snippet,SnippetReadDto>();
+            CreateMap<SnippetCreateDto, Snippet>();
         }
     }
 }

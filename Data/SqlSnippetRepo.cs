@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SnippetProject31.Models;
@@ -12,6 +13,13 @@ namespace SnippetProject31.Data
         {
             _context = context;
         }
+
+        public void CreateSnippet(Snippet obj)
+        {
+            if(obj == null) throw new ArgumentNullException(nameof(obj));
+            _context.Snippets.Add(obj);
+        }
+
         public IEnumerable<Snippet> GetAllSnippets()
         {
             return _context.Snippets.ToList();
@@ -20,6 +28,11 @@ namespace SnippetProject31.Data
         public Snippet GetSnippetById(int id)
         {
             return _context.Snippets.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return _context.SaveChanges() >= 0 ;
         }
     }
 }

@@ -5,7 +5,11 @@ namespace  SnippetProject31.Data
 {
     public class MockSnippetRepo : ISnippetRepo
     {
-        
+        public void CreateSnippet(Snippet obj)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Snippet> GetAllSnippets()
         {
             var snipppetList = new List<Snippet>{
@@ -18,6 +22,11 @@ namespace  SnippetProject31.Data
         public Snippet GetSnippetById(int id)
         {
             return new Snippet{Id=0 ,HowTo="add gitignore file",Line="dotnet new gititgnore",Platform=".NET Core"};
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

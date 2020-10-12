@@ -1,9 +1,9 @@
 namespace SnippetProject31.Dtos
 {
-    public class SnippetReadDto
+    public class SnippetCreateDto
     {
-        public int Id { get; set; }
         public string HowTo { get; set; }
         public string Line { get; set; }
+        public string Platform { get; set; }
     }
 }
