@@ -11,6 +11,8 @@ namespace SnippetProject31.Profiles
             //source -> target
             CreateMap<Snippet,SnippetReadDto>();
             CreateMap<SnippetCreateDto, Snippet>();
+            CreateMap<SnippetUpdateDto, Snippet>();
+            CreateMap<Snippet,SnippetUpdateDto>();
         }
     }
 }

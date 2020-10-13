@@ -8,5 +8,6 @@ namespace SnippetProject31.Data
         IEnumerable<Snippet> GetAllSnippets();
         Snippet GetSnippetById(int id);
         void CreateSnippet(Snippet obj);
+        void UpdateSnippet(Snippet obj);
     }
 }

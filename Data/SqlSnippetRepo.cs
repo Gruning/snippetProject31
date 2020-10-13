@@ -34,5 +34,7 @@ namespace SnippetProject31.Data
         {
             return _context.SaveChanges() >= 0 ;
         }
+
+        public void UpdateSnippet(Snippet obj){}
     }
 }

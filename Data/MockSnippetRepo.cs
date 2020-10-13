@@ -28,5 +28,10 @@ namespace  SnippetProject31.Data
         {
             throw new System.NotImplementedException();
         }
+
+        public void UpdateSnippet(Snippet obj)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

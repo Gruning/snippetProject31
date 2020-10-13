@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SnippetProject31.Data;
+using Newtonsoft.Json.Serialization;
 
 namespace snippetProject31
 {
@@ -29,7 +30,9 @@ namespace snippetProject31
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SnippetContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SnippetConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(x => {
+                x.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ISnippetRepo,SqlSnippetRepo>();            
             //services.AddScoped<ISnippetRepo,MockSnippetRepo>();
