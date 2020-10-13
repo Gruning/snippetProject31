@@ -28,7 +28,7 @@ namespace SnippetProject31.Controllers
         }
 
         //GET api/snippets/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetSnippetById")]
         public ActionResult<SnippetReadDto> GetSnippetById(int id){
             var item = _repository.GetSnippetById(id);
             if (item!= null) return Ok(_mapper.Map<SnippetReadDto>(item));
@@ -41,7 +41,8 @@ namespace SnippetProject31.Controllers
             var objModel = _mapper.Map<Snippet>(snippetCreateDto);
             _repository.CreateSnippet(objModel);
             _repository.SaveChanges();
-            return Ok(objModel);
+            var dto = _mapper.Map<SnippetReadDto>(objModel);
+            return CreatedAtRoute(nameof(GetSnippetById), new {Id = dto.Id}, dto);
         }
     }
 }
